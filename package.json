@@ -43,14 +43,14 @@
     ]
   },
   "peerDependencies": {
+    "@ant-design/icons": "^5.4.0",
     "antd": "^5.7.0",
     "classnames": "^2.5.1",
     "immutability-helper": "^3.1.1",
     "lodash-es": "^4.17.21",
     "moment": "^2.30.1",
     "react": "^18.2.0",
-    "react-dom": "^18.3.1",
-    "@ant-design/icons": "^5.4.0"
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@ant-design/icons": "^5.4.0",
@@ -88,6 +88,8 @@
     "typescript": "^5.2.2",
     "vite": "^3.2.7",
     "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-css-auto-import": "^0.5.0",
+    "vite-plugin-css-injected-by-js": "^3.5.1",
     "vite-plugin-dts": "^4.0.3",
     "vite-plugin-libcss": "^1.1.1",
     "vite-plugin-top-level-await": "^1.4.1"

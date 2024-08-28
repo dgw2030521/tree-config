@@ -114,7 +114,7 @@ module.exports = {
   },
   parserOptions: {
     // 加载所以ts和tsx文件
-    project: ['tsconfig.*.json'],
+    project: ['tsconfig.*.json', './example/tsconfig.json'],
     ecmaFeatures: {
       jsx: true,
     },
