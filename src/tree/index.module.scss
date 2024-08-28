@@ -1,0 +1,332 @@
+$lineWidth: 1px;
+$lineRadius: 10px;
+$lineHeight: 2.5rem;
+// 国家级
+$lineColor1: #fa4848;
+// 省级
+$lineColor2: #4ac04f;
+// 市级
+$lineColor3: #33a8fe;
+
+$currentPolicyColor: #4dadf2;
+$currentPolicyBgColor: #ecf8ff;
+// 区级
+$lineColor4: #1bccf3;
+// 乡镇
+$lineColor5: orange;
+// 默认颜色
+$lineColorDefault: rgba(0, 0, 0, 0.6);
+
+$cardWidthDefault: 300px;
+$cardHeightDefault: auto;
+
+$tagHeight: 20px;
+
+$policyBoxBorderRadius: 10px;
+
+h1 {
+  margin: 0;
+}
+
+.tree {
+  // 设置颜色
+  ul ul,
+  li {
+    &.level1 {
+      &::after {
+        border-color: $lineColor1 !important;
+      }
+
+      &::before {
+        border-color: $lineColor1 !important;
+      }
+    }
+
+    &.level2 {
+      &::before {
+        border-color: $lineColor2 !important;
+      }
+
+      &::after {
+        border-color: $lineColor2 !important;
+      }
+    }
+
+    &.level3 {
+      &::before {
+        border-color: $lineColor3 !important;
+      }
+
+      &::after {
+        border-color: $lineColor3 !important;
+      }
+    }
+
+    &.level4 {
+      &::before {
+        border-color: $lineColor4 !important;
+      }
+
+      &::after {
+        border-color: $lineColor4 !important;
+      }
+    }
+
+    &.level5 {
+      &::before {
+        border-color: $lineColor5 !important;
+      }
+
+      &::after {
+        border-color: $lineColor5 !important;
+      }
+    }
+  }
+
+  ul {
+    display: flex;
+    position: relative;
+    /* Reset ul 样式*/
+    list-style-type: none;
+    margin: 0;
+    padding: $lineHeight 0.5rem 0 0.5rem;
+
+    // 居中ul
+    //justify-content: center;
+
+    ul {
+      &::before {
+        border-right: $lineWidth dashed $lineColorDefault;
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 50%;
+
+        height: $lineHeight;
+        width: 50%;
+      }
+    }
+  }
+
+  li {
+    display: flex;
+    flex-direction: column;
+    padding: $lineHeight 0.5rem 0 0.5rem;
+    position: relative;
+    align-items: center;
+
+    // 仅有一个分支不需要padding
+    &:only-child {
+      padding-top: 0;
+    }
+  }
+
+  li:not(:first-child):not(:last-child) {
+    &::before {
+      border-top: $lineWidth dashed $lineColorDefault;
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 50%;
+      height: $lineHeight;
+      width: 50%;
+    }
+    &::after {
+      border-top: $lineWidth dashed $lineColorDefault;
+      border-left: $lineWidth dashed $lineColorDefault;
+      //content: '▼';
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      width: 50%;
+      height: $lineHeight;
+    }
+  }
+
+  li:first-child {
+    &::after {
+      border-top: $lineWidth dashed $lineColorDefault;
+      border-left: $lineWidth dashed $lineColorDefault;
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      width: 50%;
+      height: $lineHeight;
+      border-top-left-radius: $lineRadius;
+    }
+  }
+
+  li:last-child {
+    &::before {
+      border-top-right-radius: $lineRadius;
+      border-top: $lineWidth dashed $lineColorDefault;
+      border-right: $lineWidth dashed $lineColorDefault;
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 50%;
+      height: $lineHeight;
+      width: 50%;
+    }
+  }
+
+  li:only-child::before,
+  li:only-child::after {
+    border: none;
+  }
+}
+
+.treeCard {
+  position: relative;
+  box-sizing: border-box;
+  width: $cardWidthDefault;
+  height: $cardHeightDefault;
+  background-color: #ebeaef;
+  border: 1px solid #94a0b4;
+  border-radius: $policyBoxBorderRadius;
+  padding-top: $tagHeight;
+
+  &.current {
+    background-color: $currentPolicyBgColor;
+    border-color: $currentPolicyColor;
+
+    .policyBox {
+      background: transparent;
+
+      .policyList {
+        border-top: 1px solid $currentPolicyColor;
+      }
+    }
+  }
+
+  .triangle {
+    font-size: 25px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -70%);
+
+    &.level1 {
+      color: $lineColor1;
+    }
+
+    &.level2 {
+      color: $lineColor2;
+    }
+
+    &.level3 {
+      color: $lineColor3;
+    }
+
+    &.level4 {
+      color: $lineColor4;
+    }
+
+    &.level5 {
+      color: $lineColor5;
+    }
+  }
+
+  .tag {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: $tagHeight;
+    border-radius: 10px;
+    font-size: 12px;
+    text-align: center;
+    line-height: 20px;
+    color: #fff;
+
+    background-color: #ebeaef;
+
+    &.level1 {
+      background-color: $lineColor1;
+    }
+
+    &.level2 {
+      background-color: $lineColor2;
+    }
+
+    &.level3 {
+      background-color: $lineColor3;
+    }
+
+    &.level4 {
+      background-color: $lineColor4;
+    }
+
+    &.level5 {
+      background-color: $lineColor5;
+    }
+  }
+
+  .title {
+    font-size: 14px;
+    text-align: center;
+    padding: 0 10px;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+
+    margin-bottom: 20px;
+  }
+
+  .policyBox {
+    background-color: #fff;
+    position: relative;
+    border-radius: 0 0 $policyBoxBorderRadius $policyBoxBorderRadius;
+
+    .policyList {
+      padding: 20px 10px 10px 10px;
+      font-size: 12px;
+    }
+
+    .policyBoxBtn {
+      cursor: pointer;
+      position: absolute;
+      border-width: 1px;
+      border-style: solid;
+      background-color: #fff;
+      padding: 0 10px;
+      border-radius: 10px;
+      z-index: 99;
+
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      &.level1 {
+        color: $lineColor1;
+        border-color: $lineColor1;
+      }
+
+      &.level2 {
+        color: $lineColor2;
+        border-color: $lineColor2;
+      }
+
+      &.level3 {
+        color: $lineColor3;
+        border-color: $lineColor3;
+      }
+
+      &.level4 {
+        color: $lineColor4;
+        border-color: $lineColor4;
+      }
+
+      &.level5 {
+        color: $lineColor5;
+        border-color: $lineColor5;
+      }
+    }
+  }
+}

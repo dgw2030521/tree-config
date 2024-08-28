@@ -1,0 +1,306 @@
+$lineHeight: 80px;
+$lineWidth: 1px;
+$lineRadius: 10px;
+
+$cardWidth: 300px;
+// 国家级
+$lineColor1: #fa4848;
+// 省级
+$lineColor2: #4ac04f;
+// 市级
+$lineColor3: #33a8fe;
+
+$currentPolicyColor: #4dadf2;
+$currentPolicyBgColor: #ecf8ff;
+// 区级
+$lineColor4: #1bccf3;
+// 乡镇
+$lineColor5: orange;
+// 默认颜色
+$lineColorDefault: rgba(0, 0, 0, 0.6);
+
+// 卡片
+
+$cardWidthDefault: 300px;
+$cardHeightDefault: auto;
+$tagHeight: 20px;
+$policyBoxBorderRadius: 10px;
+$cardSpace: 30px;
+
+.container {
+  box-sizing: border-box;
+  position: relative;
+  background-color: #fff;
+  // !!定宽，每一行宽
+  width: max-content;
+  min-width: 100%;
+  min-height: 100%;
+  overflow: auto;
+
+  .levelDescBox {
+    z-index: 11;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 100px;
+
+    .levelDesc {
+      display: flex;
+      align-items: center;
+      padding-bottom: 10px;
+    }
+
+    .square {
+      display: inline-block;
+      height: 18px;
+      line-height: 18px;
+      width: 18px;
+      background-color: transparent;
+      margin-right: 10px;
+
+      &.level_1 {
+        background-color: $lineColor1;
+      }
+
+      &.level_2 {
+        background-color: $lineColor2;
+      }
+
+      &.level_3 {
+        background-color: $lineColor3;
+      }
+
+      &.level_4 {
+        background-color: $lineColor4;
+      }
+
+      &.level_5 {
+        background-color: $lineColor5;
+      }
+
+      &.level_current {
+        background-color: $currentPolicyColor;
+      }
+    }
+  }
+
+  .levelRow {
+    position: relative;
+    z-index: 10;
+    padding-top: 8px;
+    padding-bottom: $lineHeight;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    &:last-of-type {
+      padding-bottom: 0;
+    }
+
+    &:first-of-type {
+      padding-top: 0;
+    }
+
+    // 单元格
+    .headIcon {
+      position: relative;
+      padding: 0;
+      width: 100px;
+      height: 50px;
+      background-color: #acdcff;
+    }
+  }
+
+  .canvasFull {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  .treeCard {
+    position: relative;
+    box-sizing: border-box;
+    width: $cardWidthDefault;
+    height: $cardHeightDefault;
+    background-color: #ebeaef;
+    border: 1px solid #94a0b4;
+    border-radius: $policyBoxBorderRadius;
+
+    margin: 0 $cardSpace;
+
+    &.current {
+      background-color: $currentPolicyBgColor;
+      border-color: $currentPolicyColor;
+
+      .policyBox {
+        background: transparent;
+
+        .policyList {
+          border-top: 1px solid $currentPolicyColor;
+        }
+      }
+    }
+
+    .triangle {
+      font-size: 25px;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -70%);
+
+      &.level1 {
+        color: $lineColor1;
+      }
+
+      &.level2 {
+        color: $lineColor2;
+      }
+
+      &.level3 {
+        color: $lineColor3;
+      }
+
+      &.level4 {
+        color: $lineColor4;
+      }
+
+      &.level5 {
+        color: $lineColor5;
+      }
+    }
+
+    .cardHead {
+      display: block;
+      position: relative;
+      padding-top: $tagHeight;
+      padding-bottom: 20px;
+      color: #000000;
+
+      .tag {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 0 10px;
+        height: $tagHeight;
+        border-radius: 10px;
+        font-size: 12px;
+        text-align: center;
+        line-height: 20px;
+        color: #fff;
+        display: inline-flex;
+        align-items: center;
+
+        .area {
+          display: inline-block;
+        }
+
+        &.level1 {
+          background-color: $lineColor1;
+        }
+
+        &.level2 {
+          background-color: $lineColor2;
+        }
+
+        &.level3 {
+          background-color: $lineColor3;
+        }
+
+        &.level4 {
+          background-color: $lineColor4;
+        }
+
+        &.level5 {
+          background-color: $lineColor5;
+        }
+      }
+
+      .title {
+        font-size: 14px;
+        text-align: center;
+        padding: 0 10px;
+
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+      }
+
+      .policyBoxBtn {
+        cursor: pointer;
+        position: absolute;
+        border-width: 1px;
+        border-style: solid;
+        background-color: #fff;
+        padding: 0 10px;
+        border-radius: 10px;
+        z-index: 10;
+
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 50%);
+
+        &.level1 {
+          color: $lineColor1;
+          border-color: $lineColor1;
+        }
+
+        &.level2 {
+          color: $lineColor2;
+          border-color: $lineColor2;
+        }
+
+        &.level3 {
+          color: $lineColor3;
+          border-color: $lineColor3;
+        }
+
+        &.level4 {
+          color: $lineColor4;
+          border-color: $lineColor4;
+        }
+
+        &.level5 {
+          color: $lineColor5;
+          border-color: $lineColor5;
+        }
+      }
+    }
+
+    .policyBox {
+      background-color: #fff;
+      position: relative;
+      border-radius: 0 0 $policyBoxBorderRadius $policyBoxBorderRadius;
+
+      .policyList {
+        padding: 20px 10px 10px 10px;
+
+        .policyItem {
+          font-size: 12px;
+
+          a {
+            color: #000;
+            &:hover {
+              color: #1890ff;
+            }
+          }
+
+          .circle {
+            display: inline-block;
+            height: 18px;
+            line-height: 18px;
+            width: 18px;
+            border-radius: 50%;
+            background-color: transparent;
+            border: 1px solid #000;
+
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}

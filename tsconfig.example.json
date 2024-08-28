@@ -1,4 +1,12 @@
 {
-  "extends": ["./tsconfig.lib.json"],
-  "include": ["example"]
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "rootDir": "example",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+  "include": ["example", "./example/typings.d.ts"],
+  "exclude": ["node_modules", "dist"]
 }
