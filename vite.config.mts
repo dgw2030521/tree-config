@@ -28,7 +28,6 @@ export default defineConfig({
     // 给index.umd.js 生成内链css,不确定，[待验证，ts项目里没使用require验证]
     cssCodeSplit: true,
     lib: {
-      // 组件库源码的入口文件
       entry: {
         index: resolve('src/index.ts'),
         linked: resolve('src/linked/index.tsx'),
@@ -38,6 +37,11 @@ export default defineConfig({
     },
     // sourcemap: true,
     rollupOptions: {
+      // input: {
+      //   index: resolve('src/index.ts'),
+      //   linked: resolve('src/linked/index.tsx'),
+      //   tree: resolve('src/tree/index.tsx'),
+      // },
       // 确保外部化正确处理react
       external: ['react', 'react-dom'],
       output: {
