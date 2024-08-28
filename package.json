@@ -32,9 +32,9 @@
     "build": "vite build",
     "prerelease": "npm run build",
     "release": "npm version -m \"New version: %s\"",
-    "postrelease": "npm run push && npm publish",
-    "push": "git push origin master && git push origin --tags",
-    "prepare": "husky install"
+    "--postrelease": "npm run push && npm publish",
+    "--push": "git push origin master && git push origin --tags",
+    "--prepare": "husky install"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,mjs,cjs}": [
