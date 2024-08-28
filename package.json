@@ -13,9 +13,13 @@
   "module": "./dist/index.es.js",
   "typings": "./dist/index.d.ts",
   "exports": {
-    ".": {
-      "import": "./dist/index.es.js",
-      "require": "./dist/index.umd.js"
+    "./linked": {
+      "import": "./dist/linked.es.js",
+      "require": "./dist/linked.umd.js"
+    },
+    "./tree": {
+      "import": "./dist/tree.es.js",
+      "require": "./dist/tree.umd.js"
     }
   },
   "scripts": {

@@ -29,9 +29,12 @@ export default defineConfig({
     cssCodeSplit: true,
     lib: {
       // 组件库源码的入口文件
-      entry: resolve('src/index.tsx'),
-      name: 'slider-date-picker',
-      fileName: format => `index.${format}.js`,
+      entry: {
+        index: resolve('src/index.ts'),
+        linked: resolve('src/linked/index.tsx'),
+        tree: resolve('src/tree/index.tsx'),
+      },
+      fileName: (format, entryName) => `${entryName}.${format}.js`,
     },
     // sourcemap: true,
     rollupOptions: {
@@ -40,6 +43,7 @@ export default defineConfig({
       output: {
         globals: {
           react: 'React',
+          'react-dom': 'ReactDOM',
         },
       },
     },
