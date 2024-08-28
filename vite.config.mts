@@ -2,9 +2,7 @@ import react from '@vitejs/plugin-react';
 import * as path from 'path';
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
-// 可以使用vite-plugin-libcss
 // 在打包出来的 index.es.js 的第一行自动加上 `import style.css`
-// import libCss from 'vite-plugin-libcss';
 import { libInjectCss } from 'vite-plugin-lib-inject-css';
 
 function resolve(str: string) {
@@ -14,7 +12,6 @@ function resolve(str: string) {
 export default defineConfig({
   plugins: [
     react(),
-    // libCss(),
     libInjectCss(),
     dts({
       tsconfigPath: './tsconfig.lib.json',
