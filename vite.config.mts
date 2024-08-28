@@ -4,7 +4,8 @@ import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
 // 可以使用vite-plugin-libcss
 // 在打包出来的 index.es.js 的第一行自动加上 `import style.css`
-import libCss from 'vite-plugin-libcss';
+// import libCss from 'vite-plugin-libcss';
+import { libInjectCss } from 'vite-plugin-lib-inject-css';
 
 function resolve(str: string) {
   return path.resolve(__dirname, str);
@@ -13,7 +14,8 @@ function resolve(str: string) {
 export default defineConfig({
   plugins: [
     react(),
-    libCss(),
+    // libCss(),
+    libInjectCss(),
     dts({
       tsconfigPath: './tsconfig.lib.json',
     }),
@@ -33,7 +35,12 @@ export default defineConfig({
         linked: resolve('src/linked/index.tsx'),
         tree: resolve('src/tree/index.tsx'),
       },
-      fileName: (format, entryName) => `${entryName}.${format}.js`,
+      fileName: (format, entryName) => {
+        if (entryName !== 'index') {
+          return `${entryName}/index.${format}.js`;
+        }
+        return `${entryName}.${format}.js`;
+      },
     },
     // sourcemap: true,
     rollupOptions: {
