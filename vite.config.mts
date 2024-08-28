@@ -44,11 +44,6 @@ export default defineConfig({
     },
     // sourcemap: true,
     rollupOptions: {
-      // input: {
-      //   index: resolve('src/index.ts'),
-      //   linked: resolve('src/linked/index.tsx'),
-      //   tree: resolve('src/tree/index.tsx'),
-      // },
       // 确保外部化正确处理react
       external: ['react', 'react-dom'],
       output: {
