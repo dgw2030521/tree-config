@@ -29,7 +29,7 @@ interface TreeStructureProps {
   currentId: string;
 }
 
-export default function TreeStructure(props: TreeStructureProps) {
+export default function Linked(props: TreeStructureProps) {
   const { data, currentId } = props;
   const animationFrame = useRef(null);
   const canvasFullRef = useRef(null);

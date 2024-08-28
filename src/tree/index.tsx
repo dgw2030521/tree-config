@@ -13,7 +13,7 @@ enum LEVEL_DESC {
   LEVEL_5 = '乡镇级',
 }
 
-export default function TreeStructure() {
+export default function Tree() {
   const currentPolicyId = '1818194267869413376';
   const data = {
     id: '31',
