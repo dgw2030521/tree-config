@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { isEmpty, isNil } from 'lodash-es';
 import React from 'react';
 
-import styles from './index.module.scss';
+import styles from './tree.module.scss';
 
 enum LEVEL_DESC {
   LEVEL_1 = '国家级',

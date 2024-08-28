@@ -5,7 +5,7 @@ import update from 'immutability-helper';
 import { each, findIndex, isEmpty, map, toLower } from 'lodash-es';
 import React, { Fragment, useEffect, useRef, useState } from 'react';
 
-import styles from './index.module.scss';
+import styles from './linked.module.scss';
 import { convertToTree, doPaintLine } from './utils';
 
 enum LEVEL_DESC {
